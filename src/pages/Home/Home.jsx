@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
+import RoomCard from "../../components/RoomCard/RoomCard";
+import roomData from "./roomData";
 
 const Home = () => {
   return (
     <main>
       <section className="bg-base-200">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-6xl px-4 py-1 sm:px-6 lg:px-8">
           <div className="grid min-h-[calc(100vh-65px)] items-center gap-12 lg:grid-cols-2">
             {/* Hero Content */}
             <div className="max-w-2xl">
@@ -57,12 +59,42 @@ const Home = () => {
             <div className="hidden lg:block">
               <div className="relative overflow-hidden rounded-3xl border border-base-300 bg-base-100 p-3 shadow-xl">
                 <img
-                  src="/study-room.jpg"
+                  src="/hero.png"
                   alt="Quiet study room"
                   className="h-[500px] w-full rounded-2xl object-cover"
                 />
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+      <section className="bg-base-100 py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="text-sm font-semibold uppercase tracking-wider text-primary">
+              Available spaces
+            </span>
+
+            <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+              Latest Study Rooms
+            </h2>
+
+            <p className="mt-4 text-base leading-7 text-base-content/65">
+              Explore our newest study spaces and find a comfortable place to
+              focus on your next learning session.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {roomData.slice(0, 6).map((room) => (
+              <RoomCard key={room._id} room={room} />
+            ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <Link to="/rooms" className="btn btn-outline">
+              View All Rooms
+            </Link>
           </div>
         </div>
       </section>

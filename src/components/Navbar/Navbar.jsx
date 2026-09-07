@@ -11,20 +11,16 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 z-50 border-b border-base-300 bg-base-100/95 backdrop-blur">
       <div className="navbar mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
         {/* Logo */}
         <div className="navbar-start">
-          <Link
-            to="/"
-            className="flex items-center gap-2"
-          >
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-primary-content font-bold">
-              S
-            </div>
+          <Link to="/" className="flex items-center gap-2">
+            <img
+              src="/logo-icon.svg"
+              alt="StudyNook logo"
+              className="h-9 w-9 rounded-xl"
+            />
 
-            <span className="text-xl font-bold tracking-tight">
-              StudyNook
-            </span>
+            <span className="text-xl font-bold tracking-tight">StudyNook</span>
           </Link>
         </div>
 
@@ -43,17 +39,11 @@ const Navbar = () => {
 
         {/* Desktop Auth Buttons */}
         <div className="navbar-end hidden gap-2 md:flex">
-          <Link
-            to="/login"
-            className="btn btn-ghost"
-          >
+          <Link to="/login" className="btn btn-ghost">
             Login
           </Link>
 
-          <Link
-            to="/register"
-            className="btn btn-primary"
-          >
+          <Link to="/register" className="btn btn-primary">
             Register
           </Link>
         </div>
@@ -104,7 +94,6 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
-
       </div>
     </header>
   );
