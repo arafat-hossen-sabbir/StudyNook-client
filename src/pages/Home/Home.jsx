@@ -98,6 +98,126 @@ const Home = () => {
           </div>
         </div>
       </section>
+      {/* Why StudyNook */}
+      <section className="bg-base-200 py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="text-sm font-semibold uppercase tracking-wider text-primary">
+              Why StudyNook
+            </span>
+
+            <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+              Built for Better Study Sessions
+            </h2>
+
+            <p className="mt-4 text-base leading-7 text-base-content/65">
+              Everything you need to find a comfortable and productive
+              environment for your academic work.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            <div className="rounded-2xl border border-base-300 bg-base-100 p-7">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-xl text-primary">
+                ✓
+              </div>
+
+              <h3 className="text-xl font-bold">Comfortable Spaces</h3>
+
+              <p className="mt-3 leading-7 text-base-content/65">
+                Choose from dedicated study spaces designed for focused learning
+                and productive sessions.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-base-300 bg-base-100 p-7">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-xl text-primary">
+                ★
+              </div>
+
+              <h3 className="text-xl font-bold">Useful Amenities</h3>
+
+              <p className="mt-3 leading-7 text-base-content/65">
+                Find rooms with Wi-Fi, projectors, whiteboards, power outlets,
+                and other useful facilities.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-base-300 bg-base-100 p-7">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-xl text-primary">
+                ⚡
+              </div>
+
+              <h3 className="text-xl font-bold">Simple Booking</h3>
+
+              <p className="mt-3 leading-7 text-base-content/65">
+                Browse rooms, select a suitable time, and manage your bookings
+                from one convenient place.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="bg-base-100 py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="text-sm font-semibold uppercase tracking-wider text-primary">
+              Simple process
+            </span>
+
+            <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+              Book a Room in Three Steps
+            </h2>
+
+            <p className="mt-4 text-base leading-7 text-base-content/65">
+              Getting your ideal study space is quick and straightforward.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-8 md:grid-cols-3">
+            <div className="text-center">
+              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary text-lg font-bold text-primary-content">
+                01
+              </div>
+
+              <h3 className="mt-5 text-xl font-bold">Find a Room</h3>
+
+              <p className="mt-3 leading-7 text-base-content/65">
+                Explore available rooms and compare their capacity, hourly rate,
+                and amenities.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary text-lg font-bold text-primary-content">
+                02
+              </div>
+
+              <h3 className="mt-5 text-xl font-bold">Choose Your Time</h3>
+
+              <p className="mt-3 leading-7 text-base-content/65">
+                Select a suitable date and available hourly time slot for your
+                study session.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary text-lg font-bold text-primary-content">
+                03
+              </div>
+
+              <h3 className="mt-5 text-xl font-bold">Confirm Booking</h3>
+
+              <p className="mt-3 leading-7 text-base-content/65">
+                Confirm your booking and manage your study sessions from your
+                account.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 };
