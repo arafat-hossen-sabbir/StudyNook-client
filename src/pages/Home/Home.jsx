@@ -1,8 +1,28 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import RoomCard from "../../components/RoomCard/RoomCard";
-import roomData from "./roomData";
+import { getRooms } from "../../api/roomApi";
 
 const Home = () => {
+  const [rooms, setRooms] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadRooms = async () => {
+      try {
+        const data = await getRooms();
+
+        setRooms(data.slice(0, 6));
+      } catch (error) {
+        console.error("Failed to load rooms", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadRooms();
+  }, []);
+
   return (
     <main>
       <section className="bg-base-200">
@@ -86,9 +106,17 @@ const Home = () => {
           </div>
 
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {roomData.slice(0, 6).map((room) => (
-              <RoomCard key={room._id} room={room} />
-            ))}
+            {loading ? (
+              <div className="col-span-full flex justify-center py-12">
+                <span className="loading loading-spinner loading-lg"></span>
+              </div>
+            ) : rooms.length > 0 ? (
+              rooms.map((room) => <RoomCard key={room._id} room={room} />)
+            ) : (
+              <p className="col-span-full text-center text-base-content/60">
+                No study rooms available right now.
+              </p>
+            )}
           </div>
 
           <div className="mt-10 text-center">
