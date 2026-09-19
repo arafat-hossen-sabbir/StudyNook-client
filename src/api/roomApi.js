@@ -1,7 +1,9 @@
 import api from "./axios";
 
-export const getRooms = async () => {
-  const response = await api.get("/rooms");
+export const getRooms = async (params = {}) => {
+  const response = await api.get("/rooms", {
+    params,
+  });
 
   return response.data;
 };
