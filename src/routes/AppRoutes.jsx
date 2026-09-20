@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 
 import PublicLayout from "../layouts/PublicLayout";
+import PrivateRoute from "./PrivateRoute";
 
 import Home from "../pages/Home/Home";
 import Rooms from "../pages/Rooms/Rooms";
@@ -40,15 +41,27 @@ const router = createBrowserRouter([
       },
       {
         path: "add-room",
-        element: <AddRoom />,
+        element: (
+          <PrivateRoute>
+            <AddRoom />
+          </PrivateRoute>
+        ),
       },
       {
         path: "my-listings",
-        element: <MyListings />,
+        element: (
+          <PrivateRoute>
+            <MyListings />
+          </PrivateRoute>
+        ),
       },
       {
         path: "my-bookings",
-        element: <MyBookings />,
+        element: (
+          <PrivateRoute>
+            <MyBookings />
+          </PrivateRoute>
+        ),
       },
     ],
   },
