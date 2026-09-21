@@ -9,6 +9,7 @@ import RoomDetails from "../pages/RoomDetails/RoomDetails";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import AddRoom from "../pages/AddRoom/AddRoom";
+import EditRoom from "../pages/EditRoom/EditRoom";
 import MyListings from "../pages/MyListings/MyListings";
 import MyBookings from "../pages/MyBookings/MyBookings";
 import NotFound from "../pages/NotFound/NotFound";
@@ -44,6 +45,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AddRoom />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "rooms/:id/edit",
+        element: (
+          <PrivateRoute>
+            <EditRoom />
           </PrivateRoute>
         ),
       },
