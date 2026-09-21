@@ -10,6 +10,7 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import AddRoom from "../pages/AddRoom/AddRoom";
 import EditRoom from "../pages/EditRoom/EditRoom";
+import BookRoom from "../pages/BookRoom/BookRoom";
 import MyListings from "../pages/MyListings/MyListings";
 import MyBookings from "../pages/MyBookings/MyBookings";
 import NotFound from "../pages/NotFound/NotFound";
@@ -53,6 +54,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <EditRoom />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "rooms/:id/book",
+        element: (
+          <PrivateRoute>
+            <BookRoom />
           </PrivateRoute>
         ),
       },
