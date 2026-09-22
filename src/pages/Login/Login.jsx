@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 import { loginUser } from "../../api/authApi";
 import { useAuth } from "../../context/AuthContext";
 
@@ -37,15 +38,19 @@ const Login = () => {
 
       setUser(data.user);
 
+      toast.success("Login successful!");
+
       const redirectPath = location.state?.from?.pathname || "/";
 
       navigate(redirectPath, { replace: true });
     } catch (error) {
       console.error(error);
 
-      setError(
-        error.response?.data?.message || "Login failed. Please try again.",
-      );
+      const message =
+        error.response?.data?.message || "Login failed. Please try again.";
+
+      setError(message);
+      toast.error(message);
     } finally {
       setLoading(false);
     }

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 import { createRoom } from "../../api/roomApi";
 
 const AddRoom = () => {
@@ -49,11 +50,16 @@ const AddRoom = () => {
 
       await createRoom(roomData);
 
+      toast.success("Room added successfully!");
+
       navigate("/my-listings");
     } catch (error) {
       console.error(error);
 
-      setError(error.response?.data?.message || "Failed to create the room.");
+      const message = error.response?.data?.message || "Failed to add room";
+
+      setError(message);
+      toast.error(message);
     } finally {
       setLoading(false);
     }

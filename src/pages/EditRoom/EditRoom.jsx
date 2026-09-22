@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import toast from "react-hot-toast";
 import { getRoomById, updateRoom } from "../../api/roomApi";
 
 const EditRoom = () => {
@@ -60,11 +61,16 @@ const EditRoom = () => {
           .filter(Boolean),
       });
 
+      toast.success("Room updated successfully!");
+
       navigate("/my-listings");
     } catch (error) {
       console.error(error);
 
-      setError(error.response?.data?.message || "Failed to update room.");
+      const message = error.response?.data?.message || "Failed to update room.";
+
+      setError(message);
+      toast.error(message);
     } finally {
       setSaving(false);
     }

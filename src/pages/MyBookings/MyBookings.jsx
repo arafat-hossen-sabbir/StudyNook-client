@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { cancelBooking, getMyBookings } from "../../api/bookingApi";
 
 const MyBookings = () => {
@@ -34,10 +35,16 @@ const MyBookings = () => {
           booking._id === id ? { ...booking, status: "cancelled" } : booking,
         ),
       );
+
+      toast.success("Booking cancelled successfully!");
     } catch (error) {
       console.error(error);
 
-      setError(error.response?.data?.message || "Failed to cancel booking.");
+      const message =
+        error.response?.data?.message || "Failed to cancel booking.";
+
+      setError(message);
+      toast.error(message);
     }
   };
 

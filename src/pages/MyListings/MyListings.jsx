@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 import { deleteRoom, getMyListings } from "../../api/roomApi";
 
 const MyListings = () => {
@@ -29,20 +30,16 @@ const MyListings = () => {
   }, []);
 
   const handleDelete = async (id) => {
-    const confirmed = window.confirm(
-      "Are you sure you want to delete this room?",
-    );
-
-    if (!confirmed) return;
-
     try {
       await deleteRoom(id);
 
       setRooms((previous) => previous.filter((room) => room._id !== id));
+
+      toast.success("Room deleted successfully!");
     } catch (error) {
       console.error(error);
 
-      setError(error.response?.data?.message || "Failed to delete the room.");
+      toast.error("Failed to delete room");
     }
   };
 

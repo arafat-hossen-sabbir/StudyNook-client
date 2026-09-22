@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import toast from "react-hot-toast";
 import { getRoomById } from "../../api/roomApi";
 import { createBooking } from "../../api/bookingApi";
 
@@ -68,11 +69,17 @@ const BookRoom = () => {
         specialNote,
       });
 
+      toast.success("Booking confirmed successfully!");
+
       navigate("/my-bookings");
     } catch (error) {
       console.error(error);
 
-      setError(error.response?.data?.message || "Failed to create booking.");
+      const message =
+        error.response?.data?.message || "Failed to create booking";
+
+      setError(message);
+      toast.error(message);
     } finally {
       setBooking(false);
     }

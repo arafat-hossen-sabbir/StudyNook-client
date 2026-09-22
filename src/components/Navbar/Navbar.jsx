@@ -1,4 +1,5 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 import { logoutUser } from "../../api/authApi";
 import { useAuth } from "../../context/AuthContext";
 
@@ -11,6 +12,8 @@ const Navbar = () => {
       await logoutUser();
 
       setUser(null);
+
+      toast.success("Logged out successfully");
 
       navigate("/");
     } catch (error) {
