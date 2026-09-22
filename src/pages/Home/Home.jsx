@@ -1,18 +1,22 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import RoomCard from "../../components/RoomCard/RoomCard";
-import { getRooms } from "../../api/roomApi";
+import { getLatestRooms } from "../../api/roomApi";
 
 const Home = () => {
   const [rooms, setRooms] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    document.title = "StudyNook | Find Your Perfect Study Room";
+  }, []);
+
+  useEffect(() => {
     const loadRooms = async () => {
       try {
-        const data = await getRooms();
+        const data = await getLatestRooms();
 
-        setRooms(data.slice(0, 6));
+        setRooms(data);
       } catch (error) {
         console.error("Failed to load rooms", error);
       } finally {

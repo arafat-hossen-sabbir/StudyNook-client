@@ -8,6 +8,12 @@ export const getRooms = async (params = {}) => {
   return response.data;
 };
 
+export const getLatestRooms = async () => {
+  const response = await api.get("/rooms/latest");
+
+  return response.data;
+};
+
 export const getRoomById = async (id) => {
   const response = await api.get(`/rooms/${id}`);
 

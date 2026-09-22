@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { loginUser } from "../../api/authApi";
@@ -17,6 +17,10 @@ const Login = () => {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    document.title = "StudyNook | Login";
+  }, []);
 
   const handleChange = (event) => {
     const { name, value } = event.target;

@@ -29,6 +29,10 @@ const RoomDetails = () => {
     loadRoom();
   }, [id]);
 
+  useEffect(() => {
+    document.title = room ? `${room.name} | StudyNook` : "StudyNook | Room";
+  }, [room]);
+
   if (loading) {
     return (
       <main className="flex min-h-screen items-center justify-center">

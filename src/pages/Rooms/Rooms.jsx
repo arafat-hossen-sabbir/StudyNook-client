@@ -13,6 +13,10 @@ const Rooms = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
+  useEffect(() => {
+    document.title = "StudyNook | Rooms";
+  }, []);
+
   const loadRooms = async (filters = {}) => {
     try {
       setLoading(true);
@@ -113,10 +117,10 @@ const Rooms = () => {
                 onChange={(event) => setFloor(event.target.value)}
               >
                 <option value="">All floors</option>
-                <option value="1">Floor 1</option>
-                <option value="2">Floor 2</option>
-                <option value="3">Floor 3</option>
-                <option value="4">Floor 4</option>
+                <option value="1st Floor">1st Floor</option>
+                <option value="2nd Floor">2nd Floor</option>
+                <option value="3rd Floor">3rd Floor</option>
+                <option value="4th Floor">4th Floor</option>
               </select>
             </label>
 
